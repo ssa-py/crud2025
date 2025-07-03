@@ -103,7 +103,17 @@ Este proyecto requiere las siguientes librerías de Python:
 * Las contraseñas de los usuarios no se encriptan; para un sistema de producción, se recomienda usar un hash seguro (ej., `hashlib`).
 * La base de datos (`inventario.db`) se crea en el mismo directorio donde se ejecuta `main.py`.
 * El archivo de log (`log.txt`) también se crea en el mismo directorio.
+## 👤 Autor
+Alegre Sebastian - Desarrollador principal de este sistema de gestión de inventario.
 
+##🙏 Agradecimientos
+Al curso de Talento Tech BA - Argentina por despertar mas mi curiosidad por este mundo de la programacion
+
+A la comunidad de Python por sus excelentes librerías y recursos.
+
+A los usuarios por probar y proporcionar retroalimentación para mejorar este sistema.
+
+Y a la profe del curso que con mucha paciencia llevo sus clases desde 0 hasta poder hacer una app funcional.
 ---
 
 ## 📄 Licencia
