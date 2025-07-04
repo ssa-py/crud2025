@@ -1,124 +1,129 @@
-# 🛒 Sistema de Gestión de Inventario (CrUd - V3.0 - SSA)
+# 🛒 Sistema de Gestión de Inventario (CRUD - V3.0 - SSA)
 
-Este es un sistema de gestión de inventario basado en consola, desarrollado en Python, que permite a los usuarios administrar productos, realizar un seguimiento de stock, generar reportes y dashboards, y gestionar usuarios. Utiliza SQLite como base de datos para la persistencia de los datos y ofrece una interfaz de usuario interactiva y colorida.
+Este es un sistema de gestión de inventario basado en consola, diseñado para facilitar la administración de productos (crear, leer, actualizar, eliminar) y la gestión de usuarios. La aplicación utiliza **SQLite** para la persistencia de los datos, proporcionando una solución robusta y fácil de usar para el control de stock.
+
+---
 
 ## ✨ Características Principales
 
-* **Gestión de Usuarios Segura**:
-  * Registro de nuevos usuarios.
-  * Inicio de sesión con credenciales.
-  * Contraseñas ocultas durante la entrada (`getpass`).
-  * Opción para resetear todos los usuarios (útil para pruebas).
-* **Gestión Completa de Productos (CRUD)**:
-  * **Agregar Productos**: Ingreso de nombre, descripción, cantidad, precio y categoría. Permite añadir nuevas categorías dinámicamente.
-  * **Ver Productos**: Muestra un listado completo de todos los productos en una tabla formateada.
-  * **Buscar Productos**: Permite buscar por ID, nombre o categoría (búsqueda parcial e insensible a mayúsculas/minúsculas).
-  * **Modificar Productos**: Actualiza cualquier detalle de un producto existente por su ID.
-  * **Eliminar Productos**: Elimina productos del inventario por su ID.
-* **Reportes y Análisis**:
-  * **Reporte de Stock Bajo**: Identifica productos cuya cantidad está por debajo de un límite especificado.
-  * **Exportación a PDF**:
-    * Exporta el inventario completo a un archivo PDF (`reportlab`).
-    * Genera un dashboard visual con métricas clave y gráficos (cantidad por categoría, distribución de precios, top productos por stock) y lo exporta a PDF (`matplotlib`, `reportlab`).
-  * **Dashboard en Consola**: Visualiza un resumen de métricas y gráficos ASCII directamente en la terminal.
-* **Integración con WhatsApp**: Envía reportes de stock bajo directamente a través de WhatsApp (requiere un navegador web configurado).
-* **Sistema de Logging**: Registra las acciones importantes de los usuarios en un archivo `log.txt`.
-* **Módulo de Ayuda Interactivo**:
-  * Proporciona ayuda general sobre el uso de la aplicación.
-  * Permite ver los docstrings (documentación interna) de cada módulo y sus funciones principales, facilitando la comprensión del código.
-* **Interfaz Amigable**: Utiliza `colorama` para una salida de consola colorida y fácil de leer, con menús interactivos y mensajes claros.
+* **Gestión de Usuarios:**
+    * Registro de nuevos usuarios con confirmación de contraseña.
+    * Inicio de sesión seguro para acceder al sistema.
+    * Opción de resetear todos los usuarios (ideal para entornos de prueba).
+* **Gestión de Productos (CRUD Completo):**
+    * **Crear:** Añade nuevos productos con **nombre**, **descripción**, **cantidad**, **precio** y **categoría**.
+    * **Leer:** Visualiza todos los productos en un formato de tabla organizado.
+    * **Buscar:** Encuentra productos específicos por **ID**, **nombre** (parcial) o **categoría** (parcial).
+    * **Actualizar:** Modifica la información de productos existentes mediante su ID.
+    * **Eliminar:** Quita productos del inventario.
+* **Reportes de Stock Bajo:**
+    * Genera un reporte que lista productos cuya cantidad es igual o inferior a un límite definido por el usuario.
+* **Sistema de Logging:**
+    * Registra las acciones clave del usuario (ej. agregar producto, iniciar sesión, salir) en un archivo `log.txt` con marca de tiempo.
+* **Interfaz Amigable:**
+    * Menús interactivos y mensajes claros en la consola, mejorados con colores gracias a la librería `colorama`.
 
-## 📦 Estructura del Proyecto
+---
 
-El proyecto está organizado en los siguientes módulos:
+## 🚀 Requisitos
 
-* `main.py`: El punto de entrada principal de la aplicación. Orquesta el flujo de inicio de sesión y el menú principal de gestión de inventario, interactuando con los demás módulos.
-* `database.py`: Maneja todas las operaciones de la base de datos SQLite (`inventario.db`). Incluye funciones para conectar, crear tablas, y realizar operaciones CRUD sobre usuarios y productos, con manejo de transacciones para asegurar la integridad de los datos.
-* `login.py`: Gestiona la lógica de autenticación de usuarios (registro e inicio de sesión). Interactúa con `database.py` para la persistencia de usuarios y utiliza `getpass` para la entrada segura de contraseñas.
-* `productos.py`: Contiene la lógica de negocio para la gestión de productos. Implementa las funcionalidades CRUD para productos, generación de reportes, integración con WhatsApp, y la creación de dashboards en consola y PDF.
-* `help_module.py`: Proporciona ayuda general sobre la aplicación y permite a los usuarios explorar la documentación interna (docstrings) de los módulos y sus funciones.
+Asegúrate de tener **Python 3.x** instalado en tu sistema.
 
-## ⚙️ Requisitos
+Este proyecto requiere las siguientes librerías de Python:
 
-* Python 3.6 o superior
-* Las siguientes librerías de Python:
-  * `colorama`
-  * `matplotlib`
-  * `reportlab`
+* `colorama`: Para el manejo de colores en la consola.
+* `getpass`: (Estándar de Python) Utilizado para la entrada segura de contraseñas.
+* `sqlite3`: (Estándar de Python) Módulo para la gestión de la base de datos.
 
-## 🚀 Instalación
+---
 
-Sigue estos pasos para configurar y ejecutar la aplicación:
+## 🛠️ Instalación
 
-1. **Clonar el repositorio** (si está en GitHub):
-   ```bash
-   git clone [https://github.com/tu_usuario/nombre_del_repositorio.git](https://github.com/tu_usuario/nombre_del_repositorio.git)
-   cd nombre_del_repositorio
-   ```
-   (Si no está en GitHub, simplemente descarga los archivos y navega al directorio del proyecto.)
+1.  **Descarga los archivos:**
+    Asegúrate de tener todos los archivos Python (`main.py`, `productos.py`, `login.py`, `database.py`, y `ayuda.py`) en un mismo directorio.
 
-2. **Crear un entorno virtual** (recomendado):
-   ```bash
-   python -m venv venv
-   ```
+2.  **Instala las dependencias:**
+    Abre tu terminal o línea de comandos y ejecuta el siguiente comando para instalar `colorama`:
 
-3. **Activar el entorno virtual**:
-   * En Windows:
-     ```bash
-     .\venv\Scripts\activate
-     ```
-   * En macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
+    ```bash
+    pip install colorama
+    ```
 
-4. **Instalar las dependencias**:
-   ```bash
-   pip install colorama matplotlib reportlab
-   ```
+---
 
-## ▶️ Uso
+## 🖥️ Uso
 
-Para iniciar la aplicación, ejecuta el archivo `main.py` desde la terminal con el entorno virtual activado:
+1.  **Ejecuta la aplicación:**
+    Navega hasta el directorio donde guardaste los archivos y ejecuta el archivo principal:
 
-```bash
-python main.py
-```
+    ```bash
+    python main.py
+    ```
 
-Al iniciar, se te presentará un menú para:
+2.  **Menú de Inicio de Sesión:**
+    Al iniciar la aplicación, se te presentará un menú de inicio de sesión:
+    * **1. Alta de usuario:** Crea una nueva cuenta de usuario.
+    * **2. Iniciar sesión:** Accede al sistema con tus credenciales.
+    * **3. Resetear usuarios:** Borra todos los usuarios registrados (¡usar con precaución en entornos de producción!).
+    * **4. Salir del Login:** Cierra la aplicación.
 
-1. **Alta de usuario**: Registra un nuevo usuario.
-2. **Iniciar sesión**: Accede al sistema con tus credenciales.
-3. **Resetear usuarios**: Elimina todos los usuarios registrados (¡usar con precaución!).
-4. **Salir del Login**: Cierra la aplicación antes de iniciar sesión.
+3.  **Menú Principal de Gestión de Inventario:**
+    Una vez que inicies sesión con éxito, verás el menú principal con las siguientes opciones:
+    * **1. Agregar nuevo producto:** Añade un nuevo artículo al inventario.
+    * **2. Ver todos los productos:** Muestra una lista de todos los productos.
+    * **3. Buscar producto:** Permite buscar productos por ID, nombre o categoría.
+    * **4. Eliminar producto:** Borra un producto del inventario.
+    * **5. Modificar producto:** Edita los detalles de un producto existente.
+    * **6. Reporte de stock bajo:** Genera un informe de productos con baja cantidad.
+    * **7. Salir de la aplicación:** Cierra el programa y el sistema de logging.
+    * **8. Ayuda:** Accede a un menú interactivo para consultar la documentación de la aplicación, incluyendo una guía general y los `docstrings` de módulos y funciones específicas.
 
-Una vez que inicies sesión exitosamente, accederás al menú principal de gestión de inventario, donde podrás realizar todas las operaciones CRUD, generar reportes y acceder a la ayuda.
+4.  **Uso del Menú de Ayuda (Opción 8):**
+    Al seleccionar la opción "8. Ayuda" en el menú principal, se te presentará un submenú:
+    * Podrás ver una **guía general de uso** de la aplicación.
+    * Podrás consultar la **documentación a nivel de módulo** para `main.py`, `login.py`, `productos.py` y `database.py`.
+    * Tendrás una opción **interactiva para ver la documentación de funciones específicas**: Se te pedirá que selecciones un módulo, y luego se te mostrará una lista de las funciones disponibles en ese módulo para que elijas cuál documentar. Esto facilita la exploración de la API interna del sistema.
 
-**Sugerencia**: En cualquier momento, si deseas cancelar una operación de entrada de datos y volver al menú anterior, simplemente escribe `salir` y presiona Enter.
+---
 
-## 🤝 Contribución
+## 📁 Estructura del Proyecto
 
-¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto, por favor:
+* `main.py`: El punto de entrada principal de la aplicación. Orquesta los módulos y presenta el menú principal de operaciones CRUD.
+* `login.py`: Maneja toda la lógica relacionada con el registro de usuarios, el inicio de sesión y el reseteo de cuentas.
+* `productos.py`: Contiene las funciones para todas las operaciones de gestión de productos (agregar, ver, buscar, modificar, eliminar) y la generación de reportes de stock.
+* `database.py`: Encargado de la interacción con la base de datos SQLite. Incluye funciones para conectar, crear tablas, y realizar operaciones CRUD seguras (con transacciones) tanto para usuarios como para productos.
+* `ayuda.py`: Módulo que proporciona un menú interactivo para acceder a la documentación general de la aplicación, así como a los `docstrings` de módulos y funciones específicas.
+* `inventario.db`: (Generado automáticamente) El archivo de la base de datos SQLite donde se almacenan todos los datos de usuarios y productos.
+* `log.txt`: (Generado automáticamente) Archivo de texto que registra las acciones de los usuarios dentro de la aplicación.
 
-1. Haz un "fork" del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza tus cambios y asegúrate de que el código pase las pruebas.
-4. Haz un "commit" de tus cambios (`git commit -m 'feat: Añadir nueva funcionalidad X'`).
-5. Sube tus cambios a tu "fork" (`git push origin feature/nueva-funcionalidad`).
-6. Abre un "Pull Request" describiendo tus cambios.
+---
+
+## 📝 Notas Adicionales
+
+* Las contraseñas de los usuarios no se encriptan; para un sistema de producción, se recomienda usar un hash seguro (ej., `hashlib`).
+* La base de datos (`inventario.db`) se crea en el mismo directorio donde se ejecuta `main.py`.
+* El archivo de log (`log.txt`) también se crea en el mismo directorio.
+---
+## 👤 Autor
+
+Alegre Sebastian - Desarrollador principal de este sistema de gestión de inventario.
+---
+## 🙏 Agradecimientos
+
+Al curso de Talento Tech BA - Argentina por despertar mas mi curiosidad por este mundo de la programacion
+
+A la comunidad de Python por sus excelentes librerías y recursos.
+
+A los usuarios por probar y proporcionar retroalimentación para mejorar este sistema.
+
+Y a la profe del curso que con mucha paciencia llevo sus clases desde 0 hasta poder hacer una app funcional.
+
+---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` (si existe) para más detalles.
 
-## ✍️ Autor
-
-* **Alegre Sebastian** - 
-
-## 🙏 Agradecimientos
-
-* A la comunidad de Python por sus excelentes librerías y recursos.
-* A los desarrolladores de `colorama`, `matplotlib` y `reportlab` por sus valiosas herramientas.
-* Al curso de Talento Tech BA Argentina por permitirme acceder a estos conocimientos y a la Profe por la paciencia e incentivar a la mejora continua, esta version de CRUD es señal de no quedarse con lo basico!!!
+---
 
 
