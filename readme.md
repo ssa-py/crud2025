@@ -63,7 +63,7 @@ Este proyecto requiere las siguientes librerías de Python:
 2.  **Menú de Inicio de Sesión:**
     Al iniciar la aplicación, se te presentará un menú de inicio de sesión:
     * **1. Alta de usuario:** Crea una nueva cuenta de usuario.
-    * **2. Iniciar sesión:** Accede al sistema con tus credenciales.
+    * **2. Iniciar sesión:** Accede al sistema con tus credenciales. Usuario de prueba: user_test contraseña: user123
     * **3. Resetear usuarios:** Borra todos los usuarios registrados (¡usar con precaución en entornos de producción!).
     * **4. Salir del Login:** Cierra la aplicación.
 
