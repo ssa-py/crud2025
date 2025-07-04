@@ -1,4 +1,4 @@
-# 🛒 Sistema de Gestión de Inventario (CRUD - V3.0 - SSA)
+# 🛒 Sistema de Gestión de Inventario (CRUD - V2.0 - SSA)
 
 Este es un sistema de gestión de inventario basado en consola, diseñado para facilitar la administración de productos (crear, leer, actualizar, eliminar) y la gestión de usuarios. La aplicación utiliza **SQLite** para la persistencia de los datos, proporcionando una solución robusta y fácil de usar para el control de stock.
 
