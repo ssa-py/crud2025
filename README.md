@@ -106,7 +106,7 @@ Este proyecto requiere las siguientes librerías de Python:
 ---
 ## 👤 Autor
 
-Alegre Sebastian - Desarrollador principal de este sistema de gestión de inventario.
+Alegre Sebastian - 
 ---
 ## 🙏 Agradecimientos
 
